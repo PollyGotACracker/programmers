@@ -1,8 +1,3 @@
 function solution(n) {
-    let answer = '';
-    
-    for (let i = 1; i <= n; i++) {
-        answer += i % 2 === 1 ? "수" : "박";
-    }
-    return answer;
+    return "수박".repeat(n / 2) + (n % 2 === 1 ? "수" : "");
 }
