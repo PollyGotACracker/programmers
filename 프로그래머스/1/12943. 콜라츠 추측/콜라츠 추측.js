@@ -5,8 +5,7 @@ function solution(num) {
     if (num === 1) return 0;
     while (i < 500) {
         if (num === 1) return i;
-        if (!isOdd(num)) num /= 2;
-        else if (isOdd(num)) num = num * 3 + 1; 
+        isOdd(num) ? num = num * 3 + 1 : num /= 2;
         i++;
     }
     return -1;
