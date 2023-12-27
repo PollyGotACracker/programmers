@@ -3,12 +3,8 @@ function solution(t, p) {
     const iteration = t.length - p.length + 1;
     
     for (let i = 0; i < iteration; i++) {
-        let val = "";
-        for (let j = 0; j < p.length; j++) {
-            val += t[i + j];
-        }
+        const val = t.substring(i, i + p.length);
         if (Number(val) <= Number(p)) answer++;
     }
-    
     return answer;
 }
