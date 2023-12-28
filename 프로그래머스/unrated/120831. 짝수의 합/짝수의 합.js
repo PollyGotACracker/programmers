@@ -1,6 +1,9 @@
 function solution(n) {
-    let answer = 0;
+    const half = Math.floor(n / 2);
+    return half * (half + 1);
     
-    for (let i = 2; i <= n; i += 2) answer += i;
-    return answer;
+//     let answer = 0;
+
+//     for (let i = 2; i <= n; i += 2) answer += i;
+//     return answer;
 }
