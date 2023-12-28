@@ -1,12 +1,5 @@
-function getNums(x, arr) {
-    arr.push(x);
-    if (x === 1) return;
-    x % 2 ? getNums(3 * x + 1, arr) : getNums(x / 2, arr);
-}
-
-function solution(n) {
-    const answer = [];
-    
-    getNums(n, answer);
-    return answer;
+function solution(n, arr = []) {
+    arr.push(n);
+    if (n === 1) return arr;
+    return n % 2 ? solution(3 * n + 1, arr) : solution(n / 2, arr);
 }
