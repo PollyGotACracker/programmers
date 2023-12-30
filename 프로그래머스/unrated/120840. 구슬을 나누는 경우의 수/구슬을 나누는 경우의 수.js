@@ -4,5 +4,6 @@ function factorial(n) {
 }
 
 function solution(balls, share) {
+    // 부동소수점 문제 해결을 위해 Math.round() 사용
     return Math.round(factorial(balls) / (factorial(balls - share) * factorial(share)));
 }
