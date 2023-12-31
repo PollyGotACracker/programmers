@@ -1,27 +1,14 @@
-const chart = {
-    "zero": 0,
-    "one": 1,
-    "two": 2,
-    "three": 3,
-    "four": 4,
-    "five": 5,
-    "six": 6,
-    "seven": 7,
-    "eight": 8,
-    "nine": 9
-}
-
 function solution(s) {
-    let answer = "";
-    let eng = "";
-    
-    for (let v of s) {
-        isNaN(Number(v)) ? eng += v : answer += v;
-        const num = chart[eng];
-        if (typeof num === "number") {
-            answer += num;
-            eng = "";
-        }
+    const words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+    let answer = s;
+
+    for(let i = 0; i < words.length; i++) {
+        let arr = answer.split(words[i]);
+        answer = arr.join(i);
     }
     return Number(answer);
 }
+// split(): words[i] 문자 기준 answer 분할 
+// (arr = words[i] 가 삭제된 문자열 2개 배열)
+// join(): arr 의 두 문자열 사이에 words[i] 에 해당하는 i 값 삽입 
+// (answer = 변경된 문자열)
