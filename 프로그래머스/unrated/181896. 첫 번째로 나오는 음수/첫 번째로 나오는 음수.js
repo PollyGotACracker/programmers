@@ -1,6 +1,4 @@
 function solution(num_list) {
-    for (let i = 0; i < num_list.length; i++) {
-        if (num_list[i] < 0) return i;
-    }
-    return -1;
+    // findIndex(): 콜백 함수의 조건을 만족하는 첫번째 값의 인덱스 반환
+    return num_list.findIndex((v) => v < 0);
 }
