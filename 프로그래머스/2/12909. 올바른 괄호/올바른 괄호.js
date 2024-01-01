@@ -1,6 +1,6 @@
 function solution(s) {
     if (s.at(0) === ")" || s.at(-1) === "(") return false;
-    if (s.length === 1) return false;
+    if (s.length % 2 === 1) return false;
     
     const stack = [];
     [...s].forEach((v) => {
