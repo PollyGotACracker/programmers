@@ -1,10 +1,9 @@
 function solution(s) {
-    let answer = 0;
-    const arr = s.split(" ");
+    const stack = [];
     
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === "Z") answer -= Number(arr[i - 1]);
-        else answer += Number(arr[i]);
-    }
-    return answer;
+    s.split(" ").forEach((v, i) => {
+        if (v === "Z") stack.pop();
+        else stack.push(Number(v))
+    })
+    return stack.reduce((acc, cur) => acc += cur, 0);
 }
