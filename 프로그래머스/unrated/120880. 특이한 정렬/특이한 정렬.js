@@ -1,8 +1,4 @@
 function solution(numlist, n) {
-    return numlist.sort((a, b) => {
-        const diffA = Math.abs(a - n);
-        const diffB = Math.abs(b - n);
-        if (diffA === diffB) return b - a;
-        return diffA - diffB
-    });
+    // ||: 만약 차이가 같을 경우 return b - a 실행
+    return numlist.sort((a, b) => Math.abs(a - n) - Math.abs(b - n) || b - a);
 }
