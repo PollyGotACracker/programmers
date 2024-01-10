@@ -1,11 +1,7 @@
 function solution(id_pw, db) {
-    const [user_id, user_pw] = id_pw;
+    const [id, pw] = id_pw;
+    const table = new Map(db);
     
-    for ([id, pw] of db) {
-        if (user_id === id) {
-            if (user_pw === pw) return "login";
-            else return "wrong pw";
-        } 
-    }
-    return "fail";
+    if (!table.has(id)) return 'fail';
+    return table.get(id) === pw ? 'login' : 'wrong pw';
 }
