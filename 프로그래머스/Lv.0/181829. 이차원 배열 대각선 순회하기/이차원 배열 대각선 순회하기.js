@@ -1,12 +1,10 @@
 function solution(board, k) {
-    const arr = Array.from({length: k + 1}, (_, i) => {
-        return Array.from({length: k - i + 1}, (_, j) => [i, j])
-    }).flat();
+    let answer = 0;
     
-    return arr.reduce((acc, [i, j]) => {
-        if (i < board.length && j < board[i].length) {
-            return acc + board[i][j];
+    for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < board[i].length; j++) {
+            if (i + j <= k) answer += board[i][j];
         }
-        else return acc;
-    }, 0);
+    }
+    return answer;
 }
