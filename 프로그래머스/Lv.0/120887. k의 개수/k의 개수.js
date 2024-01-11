@@ -1,10 +1,7 @@
 function solution(i, j, k) {
-    let answer = 0;
+    const nums = Array.from({length: j - i + 1}, (_, idx) => i + idx).join("");
+    const regex = new RegExp(k, "g");
+    const count = nums.match(regex);
     
-    for (; i <= j; i++) {
-        const regex = new RegExp(k, "g");
-        const count = i.toString().match(regex);
-        if (count) answer += count.length;
-    }
-    return answer;
+    return count ? count.length : 0;
 }
