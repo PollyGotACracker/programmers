@@ -1,11 +1,7 @@
 function solution(babbling) {
     const words = ["aya", "ye", "woo", "ma"];
-    const passed = babbling.filter((v) => {
-        const regex = new RegExp(`^(${words.join("|")}){1,}$`);
-        if (!regex.test(v)) return false;
-        const isDupe = words.some((w) => v.indexOf(w + w) > -1);
-        if (isDupe) return false;
-        return true;
-    });
-    return passed.length;
+    const regex1 = new RegExp(`^(${words.join("|")}){1,}$`);
+    const regex2 = new RegExp(`(${words.map((w) => w.repeat(2)).join("|")}){1,}`);
+    
+    return babbling.filter((v) => regex1.test(v) && !regex2.test(v)).length;
 }
