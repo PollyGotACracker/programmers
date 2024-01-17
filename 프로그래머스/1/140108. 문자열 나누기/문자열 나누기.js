@@ -1,20 +1,16 @@
 function solution(s) {
     let splitted = 0;
-    let firstChar = s[0];
-    let firstCount = 0, othersCount = 0;
-    let i = 0;
-    
-    while (s.length) {
-        s[i] === firstChar ? firstCount++ : othersCount++;
-        if (firstCount === othersCount) {
-            firstChar = s[i + 1];
-            firstCount = 0;
-            othersCount = 0;
-            s = s.substring(i + 1);
+    let firstChar = "";
+    let count = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        if(count === 0) {
             splitted++;
-            i = -1;
+            firstChar = s[i];
+            count = 1;
+        } else {
+            s[i] !== firstChar ? count-- : count++;
         }
-        i++;
     }
     return splitted;
 }
