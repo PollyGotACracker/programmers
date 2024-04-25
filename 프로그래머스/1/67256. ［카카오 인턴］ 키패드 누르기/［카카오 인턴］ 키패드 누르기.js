@@ -1,17 +1,11 @@
 function solution(numbers, hand) {
     let answer = '';
-    const keypadPos = {
-        "1": { value: "L", pos: [0,0] },
-        "4": { value: "L", pos: [1,0] },
-        "7": { value: "L", pos: [2,0] },
-        "3": { value: "R", pos: [0,2] },
-        "6": { value: "R", pos: [1,2] },
-        "9": { value: "R", pos: [2,2] },
-        "2": { value: null, pos: [0,1] },
-        "5": { value: null, pos: [1,1] },
-        "8": { value: null, pos: [2,1] },
-        "0": { value: null, pos: [3,1] }
-    };
+    const keypadPos = [
+        [3,1],
+        [0,0], [0,1], [0,2], 
+        [1,0], [1,1], [1,2], 
+        [2,0], [2,1], [2,2]
+    ];
     const handPos = { 
         L: [3,0], 
         R: [3,2] 
@@ -19,7 +13,8 @@ function solution(numbers, hand) {
     const handedValue = hand === "left" ? "L" : "R";
     
     for (let num of numbers) {
-        let { value, pos } = keypadPos[num.toString()];
+        const pos = keypadPos[num];
+        let value = pos[1] === 0 ? "L" : pos[1] === 2 ? "R" : null; 
         if (!!!value) {
             const dl = calcDistance(pos, handPos["L"]);
             const dr = calcDistance(pos, handPos["R"]);
